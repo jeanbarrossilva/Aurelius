@@ -1,0 +1,36 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.jeanbarrossilva.aurelius.app'
+    compileSdk versions.aurelius.sdk.compile
+
+    defaultConfig {
+        applicationId 'com.jeanbarrossilva.aurelius'
+        minSdk versions.aurelius.sdk.min
+        targetSdk versions.aurelius.sdk.target
+        versionCode versions.aurelius.code
+        versionName versions.aurelius.name
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility versions.java
+        targetCompatibility versions.java
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.java.toString()
+    }
+}

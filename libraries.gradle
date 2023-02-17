@@ -1,0 +1,43 @@
+buildscript {
+    apply from: 'versions.gradle'
+
+    ext {
+        libraries = [
+            accompanist: [
+                pager: "com.google.accompanist:accompanist-pager:${versions.accompanist}",
+                placeholder: 'com.google.accompanist:accompanist-placeholder-material:' +
+                    versions.accompanist,
+                systemuicontroller: 'com.google.accompanist:accompanist-systemuicontroller:' +
+                    versions.accompanist
+            ],
+            appcompat: "androidx.appcompat:appcompat:${versions.appcompat}",
+            compose: [
+                material: "androidx.compose.material:material:${versions.compose_material}",
+                material3: "androidx.compose.material3:material3:${versions.compose_material3}",
+                ui: [
+                    test: [
+                        junit4: "androidx.compose.ui:ui-test-junit4:${versions.compose_ui}",
+                        manifest: "androidx.compose.ui:ui-test-manifest:${versions.compose_ui}"
+                    ],
+                    tooling: "androidx.compose.ui:ui-tooling:${versions.compose_ui}"
+                ]
+            ],
+            constraintlayout_compose: 'androidx.constraintlayout:constraintlayout-compose:' +
+                versions.constraintlayout_compose,
+            customview: "androidx.customview:customview:${versions.customview}",
+            customview_poolingcontainer: "androidx.customview:customview-poolingcontainer:" +
+                versions.customview_poolingcontainer,
+            fragment: "androidx.fragment:fragment-ktx:${versions.fragment}",
+            lifecycle: [
+                viewmodel: [
+                    savedstate: 'androidx.lifecycle:lifecycle-viewmodel-savedstate:' +
+                        versions.lifecycle
+                ]
+            ],
+            material: "com.google.android.material:material:${versions.material}",
+            test: [
+                runner: "androidx.test:runner:${versions.test.runner}"
+            ]
+        ]
+    }
+}

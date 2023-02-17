@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="aurelius_background">@android:color/white</color>
+    <color name="aurelius_scrim">#4D000000</color>
+    <color name="aurelius_container_primary">#050505</color>
+    <color name="aurelius_container_secondary">#F1F1F1</color>
+    <color name="aurelius_container_tertiary">#EDEDED</color>
+    <color name="aurelius_content_primary">@android:color/white</color>
+    <color name="aurelius_content_secondary">@android:color/black</color>
+    <color name="aurelius_content_tertiary">@android:color/black</color>
+    <color name="aurelius_text_highlighted">@android:color/black</color>
+    <color name="aurelius_text_default">#80000000</color>
+</resources>
