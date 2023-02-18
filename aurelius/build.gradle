@@ -5,15 +5,26 @@ plugins {
 }
 
 publishing {
+    apply from: "$rootDir/utils/properties-utils.gradle"
+    apply from: "$rootDir/versions.gradle"
+
+    repositories {
+        maven {
+            name 'GitHubPackages'
+            url 'https://maven.pkg.github.com/jeanbarrossilva/Aurelius'
+
+            credentials {
+                username properties_utils.getLocalProperty('github.username')
+                password properties_utils.getLocalProperty('github.key')
+            }
+        }
+    }
+
     publications {
         release(MavenPublication) {
-            groupId = 'com.jeanbarrossilva'
-            artifactId = 'aurelius'
-            version = versions.aurelius.name
-
-            afterEvaluate {
-                from components.release
-            }
+            groupId 'com.jeanbarrossilva'
+            artifactId 'aurelius'
+            version versions.aurelius.name
         }
     }
 }

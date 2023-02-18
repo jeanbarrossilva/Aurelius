@@ -1,0 +1,28 @@
+buildscript {
+    ext {
+        properties_utils = [
+            getLocalProperties: {
+                return rootProject.file("$rootDir/local.properties")
+            },
+            getLocalProperty: { String key -> return properties_utils.properties.getProperty(key) },
+            properties: new Properties()
+        ]
+    }
+}
+
+task tryToLoadLocalProperties {
+    File file = properties_utils.getLocalProperties()
+    String fileName = file.name
+    boolean hasLocalProperties = file.exists()
+    if (hasLocalProperties) {
+        loadLocalProperties()
+        println "Loaded $fileName."
+    } else {
+        println "Could not load $fileName because the file doesn't exist."
+    }
+}
+
+void loadLocalProperties() {
+    DataInputStream inputStream = properties_utils.getLocalProperties().newDataInputStream()
+    properties_utils.properties.load(inputStream)
+}
