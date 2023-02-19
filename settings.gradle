@@ -1,3 +1,0 @@
-rootProject.name = 'Aurelius'
-include ':app'
-include ':aurelius'
