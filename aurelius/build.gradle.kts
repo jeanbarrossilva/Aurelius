@@ -36,6 +36,10 @@ android {
 
     defaultConfig {
         minSdk = Versions.Aurelius.SDK_MIN
+
+        @Suppress("DEPRECATION")
+        targetSdk = Versions.Aurelius.SDK_TARGET
+
         testInstrumentationRunner = Libraries.TEST_RUNNER
     }
 
