@@ -1,9 +1,9 @@
 import org.gradle.api.JavaVersion
 
+@Suppress("SpellCheckingInspection")
 object Versions {
     const val ACCOMPANIST = "0.25.1"
     const val APPCOMPAT = "1.5.1"
-    const val COMPOSE = "1.3.2"
     const val COMPOSE_COMPILER = "1.4.2"
     const val COMPOSE_MATERIAL = "1.3.1"
     const val COMPOSE_MATERIAL_3 = "1.0.1"
@@ -11,7 +11,6 @@ object Versions {
     const val CONSTRAINTLAYOUT_COMPOSE = "1.0.1"
     const val CUSTOMVIEW = "1.1.0"
     const val CUSTOMVIEW_POOLINGCONTAINER = "1.0.0"
-    const val DOKKA = "1.7.20"
     const val FRAGMENT = "1.5.3"
     const val GRADLE = "7.4.1"
     const val KOTLIN = "1.8.10"
@@ -23,7 +22,7 @@ object Versions {
 
     object Aurelius {
         const val CODE = 2
-        const val NAME = "1.0.9"
+        const val NAME = "1.0.10"
         const val SDK_COMPILE = 33
         const val SDK_MIN = 21
         const val SDK_TARGET = SDK_COMPILE

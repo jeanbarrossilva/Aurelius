@@ -1,5 +1,3 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -24,7 +22,10 @@ publishing {
             groupId = Metadata.GROUP
             artifactId = Metadata.ARTIFACT
             version = Versions.Aurelius.NAME
-            artifact("$buildDir/outputs/aar/$artifactId-release.aar")
+
+            afterEvaluate {
+                artifact("$buildDir/outputs/aar/$artifactId-release.aar")
+            }
         }
     }
 }
