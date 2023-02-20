@@ -1,5 +1,3 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -13,8 +11,8 @@ publishing {
             url = uri("https://maven.pkg.github.com/jeanbarrossilva/Aurelius")
 
             credentials {
-                username = gradleLocalProperties(rootDir).getProperty("github.username")
-                password = gradleLocalProperties(rootDir).getProperty("github.key")
+                username = System.getenv("github.username")
+                password = System.getenv("github.key")
             }
         }
     }
