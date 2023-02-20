@@ -18,13 +18,13 @@ publishing {
     }
 
     publications {
-        register<MavenPublication>(Variants.DEBUG) {
+        register<MavenPublication>(Variants.RELEASE) {
             groupId = Metadata.GROUP
             artifactId = Metadata.ARTIFACT
             version = Versions.Aurelius.NAME
 
             afterEvaluate {
-                artifact("$buildDir/outputs/aar/$artifactId-release.aar")
+                from(components[Variants.RELEASE])
             }
         }
     }
@@ -44,9 +44,16 @@ android {
         testInstrumentationRunner = Libraries.TEST_RUNNER
     }
 
+    publishing {
+        singleVariant(Variants.RELEASE) {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+
     buildTypes {
         getByName(Variants.RELEASE) {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
