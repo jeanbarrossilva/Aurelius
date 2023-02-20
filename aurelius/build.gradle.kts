@@ -67,6 +67,12 @@ android {
         jvmTarget = Versions.java.toString()
     }
 
+    sourceSets {
+        all {
+            java.srcDir("src/$name/java")
+        }
+    }
+
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.COMPOSE_COMPILER
     }
