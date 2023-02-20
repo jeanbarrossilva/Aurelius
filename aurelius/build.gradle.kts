@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -11,14 +13,14 @@ publishing {
             url = uri("https://maven.pkg.github.com/jeanbarrossilva/Aurelius")
 
             credentials {
-                username = System.getenv("github-username")
-                password = System.getenv("github-key")
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_TOKEN")
             }
         }
     }
 
     publications {
-        register<MavenPublication>(Variants.RELEASE) {
+        register<MavenPublication>(Variants.DEBUG) {
             groupId = Metadata.GROUP
             artifactId = Metadata.ARTIFACT
             version = Versions.Aurelius.NAME
@@ -65,21 +67,8 @@ android {
         jvmTarget = Versions.java.toString()
     }
 
-    sourceSets {
-        all {
-            java.srcDir("src/$name/java")
-        }
-    }
-
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.COMPOSE_COMPILER
-    }
-
-    publishing {
-        singleVariant(Variants.RELEASE) {
-            withSourcesJar()
-            withJavadocJar()
-        }
     }
 }
 
