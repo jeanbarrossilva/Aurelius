@@ -11,8 +11,8 @@ publishing {
             url = uri("https://maven.pkg.github.com/jeanbarrossilva/Aurelius")
 
             credentials {
-                username = System.getenv("github.username")
-                password = System.getenv("github.key")
+                username = System.getenv("github-username")
+                password = System.getenv("github-key")
             }
         }
     }
