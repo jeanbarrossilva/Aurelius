@@ -10,7 +10,7 @@ import androidx.core.view.ViewCompat
 
 /**
  * [SideEffect] that runs the given [effect] whenever the keyboard visibility changes, providing the
- * callback its current state (that is initially [idle][Keyboard.Idle]).
+ * callback receiving its current state (that is initially [idle][Keyboard.Idle]).
  *
  * @param effect Callback run whenever the visibility of the keyboard is changed.
  **/
