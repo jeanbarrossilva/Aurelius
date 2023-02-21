@@ -6,7 +6,7 @@ plugins {
 
 publishing {
     repositories {
-        aurelius(project)
+        aurelius()
     }
 
     publications {

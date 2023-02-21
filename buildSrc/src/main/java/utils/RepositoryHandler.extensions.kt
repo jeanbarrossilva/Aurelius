@@ -9,15 +9,13 @@ import org.gradle.api.artifacts.repositories.MavenArtifactRepository
  *
  * @param project [Project] to which the repository is being added.
  **/
-fun RepositoryHandler.aurelius(project: Project): MavenArtifactRepository {
+fun RepositoryHandler.aurelius(): MavenArtifactRepository {
     return maven {
         url = URI.create("https://maven.pkg.github.com/jeanbarrossilva/Aurelius")
 
         credentials {
-            with(localProperties(project.rootDir)) {
-                username = System.getenv("GITHUB_USERNAME")
-                password = System.getenv("GITHUB_TOKEN")
-            }
+            username = System.getenv("GITHUB_USERNAME")
+            password = System.getenv("GITHUB_TOKEN")
         }
     }
 }
