@@ -22,7 +22,7 @@ object Versions {
 
     object Aurelius {
         const val CODE = 2
-        const val NAME = "1.0.20"
+        const val NAME = "1.1.0"
         const val SDK_COMPILE = 33
         const val SDK_MIN = 21
         const val SDK_TARGET = SDK_COMPILE
