@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.aurelius
+package com.jeanbarrossilva.aurelius.ui.input
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
