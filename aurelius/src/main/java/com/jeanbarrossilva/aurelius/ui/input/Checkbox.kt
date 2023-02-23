@@ -14,13 +14,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jeanbarrossilva.aurelius.R
 import com.jeanbarrossilva.aurelius.ui.layout.background.Background
 import com.jeanbarrossilva.aurelius.ui.layout.background.BackgroundContentSizing
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
+
+/** Tag that identifies the [Checkbox] for testing purposes. **/
+internal const val CHECKBOX_TAG = "checkbox"
 
 /**
  * [Button] with a check mark that appears according to [isChecked] and triggers [onToggle] when
@@ -49,7 +55,9 @@ fun Checkbox(
 
     Button(
         onClick = { onToggle(!isChecked) },
-        modifier.size(32.dp),
+        modifier
+            .semantics { selected = isChecked }
+            .size(32.dp),
         colors = buttonColors(
             containerColor,
             contentColor = AureliusTheme.colors.content.primary
@@ -67,8 +75,13 @@ fun Checkbox(
 }
 
 @Composable
-private fun Checkbox(isChecked: Boolean, modifier: Modifier = Modifier) {
-    Checkbox(isChecked, onToggle = { }, modifier)
+@Suppress("ComposableNaming")
+internal fun _Checkbox(
+    isChecked: Boolean,
+    modifier: Modifier = Modifier,
+    onToggle: (isChecked: Boolean) -> Unit = { }
+) {
+    Checkbox(isChecked, onToggle, modifier.testTag(CHECKBOX_TAG))
 }
 
 @Composable
@@ -77,7 +90,7 @@ private fun Checkbox(isChecked: Boolean, modifier: Modifier = Modifier) {
 private fun SelectedCheckboxPreview() {
     AureliusTheme {
         Background(contentSizing = BackgroundContentSizing.WRAP) {
-            Checkbox(isChecked = false)
+            _Checkbox(isChecked = false)
         }
     }
 }
@@ -88,7 +101,7 @@ private fun SelectedCheckboxPreview() {
 private fun UnselectedCheckboxPreview() {
     AureliusTheme {
         Background(contentSizing = BackgroundContentSizing.WRAP) {
-            Checkbox(isChecked = true)
+            _Checkbox(isChecked = true)
         }
     }
 }

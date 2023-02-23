@@ -1,10 +1,8 @@
-package com.jeanbarrossilva.aurelius
+package com.jeanbarrossilva.aurelius.ui.system.keyboard
 
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.core.view.WindowInsetsCompat
 import androidx.test.platform.app.InstrumentationRegistry
-import com.jeanbarrossilva.aurelius.ui.system.keyboard.Keyboard
-import com.jeanbarrossilva.aurelius.ui.system.keyboard.KeyboardEffect
 import com.jeanbarrossilva.aurelius.utils.activity
 import com.jeanbarrossilva.aurelius.utils.insetsControllerCompat
 import org.junit.Assert.assertEquals
