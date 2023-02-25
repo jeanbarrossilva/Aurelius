@@ -1,5 +1,5 @@
 object Metadata {
-    const val ARTIFACT = "aurelius"
+    const val ARTIFACT = "aurelius-android"
     const val GROUP = "com.jeanbarrossilva.aurelius"
     const val NAMESPACE = GROUP
 
