@@ -23,16 +23,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.onPlaced
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
 import androidx.compose.ui.unit.isUnspecified
+import androidx.compose.ui.unit.takeOrElse
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
 import com.jeanbarrossilva.aurelius.utils.`if`
 import com.jeanbarrossilva.aurelius.utils.toDpSize
+
+/** Tag that identifies the [TopAppBar] for testing purposes. **/
+internal const val TOP_APP_BAR_TAG = "top_app_bar"
 
 internal val topAppBarBackgroundColor
     @Composable get() = AureliusTheme.colors.container.secondary
@@ -119,12 +124,14 @@ fun TopAppBar(
         if (isCompact) AureliusTheme.sizes.spacing.medium else AureliusTheme.sizes.spacing.large,
         AureliusTheme.animation.spec()
     )
-    var fullHeight by remember { mutableStateOf(Dp.Unspecified) }
+    var expandedHeight by remember { mutableStateOf(Dp.Unspecified) }
     val currentHeight by animateDpAsState(
         if (isCompact) {
             64.dp + AureliusTheme.sizes.margin.statusBar.calculateTopPadding()
         } else {
-            fullHeight
+            expandedHeight.takeOrElse {
+                Dp.Infinity
+            }
         },
         AureliusTheme.animation.spec()
     )
@@ -134,8 +141,8 @@ fun TopAppBar(
             .fillMaxWidth()
             .`if`(currentHeight.isSpecified) { height(currentHeight) }
             .onPlaced {
-                if (currentHeight.isUnspecified) {
-                    fullHeight = it.size.toDpSize(density).height
+                if (expandedHeight.isUnspecified) {
+                    expandedHeight = it.size.toDpSize(density).height
                 }
             }
             .background(containerBrush)
@@ -176,7 +183,7 @@ internal fun TopAppBar(isCompact: Boolean, modifier: Modifier = Modifier) {
         isCompact,
         navigationButton = { MenuButton(onClick = { }) },
         title = { Text("Title") },
-        modifier,
+        modifier.testTag(TOP_APP_BAR_TAG),
         subtitle = { Text("Subtitle") }
     )
 }
