@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
 import androidx.compose.ui.unit.isUnspecified
+import androidx.compose.ui.unit.takeOrElse
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
@@ -124,7 +125,9 @@ fun TopAppBar(
         if (isCompact) {
             64.dp + AureliusTheme.sizes.margin.statusBar.calculateTopPadding()
         } else {
-            fullHeight
+            fullHeight.takeOrElse {
+                Dp.Infinity
+            }
         },
         AureliusTheme.animation.spec()
     )
@@ -134,7 +137,7 @@ fun TopAppBar(
             .fillMaxWidth()
             .`if`(currentHeight.isSpecified) { height(currentHeight) }
             .onPlaced {
-                if (currentHeight.isUnspecified) {
+                if (fullHeight.isUnspecified) {
                     fullHeight = it.size.toDpSize(density).height
                 }
             }
