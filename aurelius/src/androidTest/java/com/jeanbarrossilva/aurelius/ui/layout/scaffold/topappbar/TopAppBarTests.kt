@@ -9,6 +9,13 @@ internal class TopAppBarTests {
     @get:Rule
     val composeRule = createComposeRule()
 
+    @Test(expected = IllegalStateException::class)
+    fun throwsOnUnprovidedTheme() {
+        composeRule.setContent {
+            TopAppBar(isCompact = false)
+        }
+    }
+
     @Test
     fun doesNotThrowWhenPlacedWhileExpanded() {
         composeRule.setContent {
@@ -16,9 +23,5 @@ internal class TopAppBarTests {
                 TopAppBar(isCompact = false)
             }
         }
-    }
-
-    companion object {
-        private const val COMPACT_TAG = "compact"
     }
 }

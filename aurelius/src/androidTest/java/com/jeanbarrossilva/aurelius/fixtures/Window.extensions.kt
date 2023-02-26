@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.aurelius.utils
+package com.jeanbarrossilva.aurelius.fixtures // ktlint-disable filename
 
 import android.view.Window
 import androidx.core.view.WindowInsetsControllerCompat
