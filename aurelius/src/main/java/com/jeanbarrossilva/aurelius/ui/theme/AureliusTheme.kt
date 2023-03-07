@@ -35,8 +35,9 @@ import com.jeanbarrossilva.aurelius.ui.theme.visibility.VisibilityProvider
 object AureliusTheme {
     /** Whether or not an [AureliusTheme] has been provided. **/
     internal val isProvided
-        @Composable get() = animation != Animation.Default && colors != Colors.Unspecified &&
-            sizes != Sizes.Unspecified && text != Text.Default && visibility != Visibility.Zero
+        @Composable get() = animation != Animation.Unspecified && colors != Colors.Unspecified &&
+            sizes != Sizes.Unspecified && text != Text.Unspecified &&
+            visibility != Visibility.Unspecified
 
     /** Current [Animation] from [LocalAnimation]. **/
     val animation

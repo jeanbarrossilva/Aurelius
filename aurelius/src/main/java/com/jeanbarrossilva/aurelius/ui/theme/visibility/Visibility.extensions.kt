@@ -5,5 +5,5 @@ import androidx.compose.runtime.compositionLocalOf
 
 /** [CompositionLocal] that provides a [Visibility]. **/
 internal val LocalVisibility = compositionLocalOf {
-    Visibility.Zero
+    Visibility.Unspecified
 }

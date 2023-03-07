@@ -5,5 +5,5 @@ import androidx.compose.runtime.compositionLocalOf
 
 /** [CompositionLocal] that provides [Text]. **/
 internal val LocalText = compositionLocalOf {
-    Text.Default
+    Text.Unspecified
 }

@@ -14,6 +14,6 @@ data class Visibility internal constructor(
 ) {
     companion object {
         /** [Visibility] with zeroed values. **/
-        internal val Zero = Visibility(medium = 0f, low = 0f)
+        internal val Unspecified = Visibility(medium = 0f, low = 0f)
     }
 }

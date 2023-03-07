@@ -16,7 +16,7 @@ data class AnimationDurations internal constructor(
 ) {
     companion object {
         /** [AnimationDurations] with [Duration.ZERO] values. **/
-        internal val Zero =
+        internal val Unspecified =
             AnimationDurations(fast = Duration.ZERO, medium = Duration.ZERO, slow = Duration.ZERO)
     }
 }
