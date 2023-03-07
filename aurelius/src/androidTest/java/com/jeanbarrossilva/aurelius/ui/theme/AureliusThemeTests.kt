@@ -37,7 +37,7 @@ internal class AureliusThemeTests {
     @Test(expected = IllegalStateException::class)
     fun throwsWhenRequiredWhileNotProvided() {
         composeRule.setContent {
-            AureliusTheme.requireFor("Test")
+            AureliusTheme.require()
         }
     }
 
@@ -49,7 +49,7 @@ internal class AureliusThemeTests {
             }
 
             Text("This one isn't, though.")
-            AureliusTheme.requireFor("Test")
+            AureliusTheme.require()
         }
     }
 
@@ -57,7 +57,7 @@ internal class AureliusThemeTests {
     fun doesNotThrowWhenRequiredWhileProvided() {
         composeRule.setContent {
             AureliusTheme {
-                AureliusTheme.requireFor("Test")
+                AureliusTheme.require()
             }
         }
     }
