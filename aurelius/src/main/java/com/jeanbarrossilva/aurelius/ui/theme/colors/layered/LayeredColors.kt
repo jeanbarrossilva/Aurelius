@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.aurelius.ui.theme.colors
+package com.jeanbarrossilva.aurelius.ui.theme.colors.layered
 
 import androidx.annotation.ColorRes
 import androidx.compose.runtime.Composable

@@ -4,6 +4,7 @@ import androidx.annotation.ColorRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import com.jeanbarrossilva.aurelius.R
 
 /**
  * [Color]s of hierarchically and/or contextually distinct texts.
@@ -16,6 +17,10 @@ data class TextColors internal constructor(val highlighted: Color, val default: 
         /** [TextColors] with [Color.Unspecified] values. **/
         internal val Unspecified =
             TextColors(highlighted = Color.Unspecified, default = Color.Unspecified)
+
+        /** [TextColors] that are provided by default. **/
+        val default
+            @Composable get() = of(R.color.aurelius_text_highlighted, R.color.aurelius_text_default)
 
         @Composable
         internal fun of(@ColorRes highlighted: Int, @ColorRes default: Int): TextColors {
