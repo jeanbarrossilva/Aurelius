@@ -81,11 +81,12 @@ object AureliusTheme {
  * Themes the given [content] by providing [colors], [text], [sizes] and [visibility][visibility]
  * values to their respective [CompositionLocal]s and sets up the system bars.
  *
+ * @param colors [Colors] for coloring the [content].
  * @param content Content to be themed.
  **/
 @Composable
-fun AureliusTheme(content: @Composable () -> Unit) {
-    ColorsProvider {
+fun AureliusTheme(colors: Colors = Colors.default, content: @Composable () -> Unit) {
+    ColorsProvider(colors) {
         SystemBarsConfigurationEffect()
 
         AnimationProvider {

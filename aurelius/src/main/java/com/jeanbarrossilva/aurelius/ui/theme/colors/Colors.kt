@@ -5,6 +5,9 @@ import androidx.compose.material3.ColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import com.jeanbarrossilva.aurelius.R
+import com.jeanbarrossilva.aurelius.ui.theme.colors.layered.LayeredColors
+import com.jeanbarrossilva.aurelius.ui.theme.colors.layered.LayeredColorsDefaults
 
 /**
  * Palette for various contexts.
@@ -64,6 +67,16 @@ data class Colors internal constructor(
             content = LayeredColors.Unspecified,
             TextColors.Unspecified
         )
+
+        /** [Colors] that are provided by default. **/
+        val default
+            @Composable get() = of(
+                R.color.aurelius_background,
+                R.color.aurelius_scrim,
+                LayeredColorsDefaults.container,
+                LayeredColorsDefaults.content,
+                TextColors.default
+            )
 
         /**
          * Creates [Colors] by getting the corresponding [Color] for the given [background] resource
