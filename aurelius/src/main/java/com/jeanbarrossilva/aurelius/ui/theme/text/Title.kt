@@ -11,6 +11,6 @@ import androidx.compose.ui.text.TextStyle
 data class Title internal constructor(val large: TextStyle, val small: TextStyle) {
     companion object {
         /** [Title] with [TextStyle.Default] values. **/
-        internal val Default = Title(large = TextStyle.Default, small = TextStyle.Default)
+        internal val Unspecified = Title(large = TextStyle.Default, small = TextStyle.Default)
     }
 }

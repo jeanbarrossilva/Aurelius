@@ -39,9 +39,9 @@ data class Text internal constructor(
 
     companion object {
         /** [Text] with default values. **/
-        internal val Default = Text(
+        internal val Unspecified = Text(
             headline = TextStyle.Default,
-            title = Title.Default,
+            title = Title.Unspecified,
             body = TextStyle.Default,
             label = TextStyle.Default
         )

@@ -18,9 +18,9 @@ abstract class Animation internal constructor() {
         FiniteAnimationSpec<T>
 
     companion object {
-        /** [Animation] with an [AnimationDurations.Zero] and a [spring][spring] [spec]. **/
-        internal val Default = object : Animation() {
-            override val durations = AnimationDurations.Zero
+        /** [Animation] with an [AnimationDurations.Unspecified] and a [spring][spring] [spec]. **/
+        internal val Unspecified = object : Animation() {
+            override val durations = AnimationDurations.Unspecified
 
             override fun <T> spec(duration: AnimationDurations.() -> Duration):
                 FiniteAnimationSpec<T> {

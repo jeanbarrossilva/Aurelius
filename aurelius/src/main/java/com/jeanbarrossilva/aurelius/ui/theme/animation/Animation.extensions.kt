@@ -5,5 +5,5 @@ import androidx.compose.runtime.compositionLocalOf
 
 /** [CompositionLocal] that provides an [Animation]. **/
 internal val LocalAnimation = compositionLocalOf {
-    Animation.Default
+    Animation.Unspecified
 }
