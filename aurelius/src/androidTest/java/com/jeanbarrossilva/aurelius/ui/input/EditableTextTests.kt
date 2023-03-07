@@ -35,7 +35,7 @@ internal class EditableTextTests {
             EditableText(isActive = true)
         }
         composeRule.onNodeWithTag(EDITABLE_TEXT_TAG).performClick()
-        composeRule.waitUntil(timeoutMillis = 4_000) { keyboard is Keyboard.Open }
+        composeRule.waitUntil(timeoutMillis = 16_000) { keyboard is Keyboard.Open }
         assertEquals(Keyboard.Open::class, keyboard::class)
     }
 

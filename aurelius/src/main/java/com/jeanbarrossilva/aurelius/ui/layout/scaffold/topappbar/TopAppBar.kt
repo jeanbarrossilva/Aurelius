@@ -119,6 +119,8 @@ fun TopAppBar(
     subtitle: @Composable () -> Unit = { },
     actions: @Composable RowScope.() -> Unit = { }
 ) {
+    AureliusTheme.requireFor("TopAppBar")
+
     val density = LocalDensity.current
     val spacing by animateDpAsState(
         if (isCompact) AureliusTheme.sizes.spacing.medium else AureliusTheme.sizes.spacing.large,

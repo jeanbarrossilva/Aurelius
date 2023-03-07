@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.aurelius.utils // ktlint-disable filename
+package com.jeanbarrossilva.aurelius.fixtures // ktlint-disable filename
 
 import android.app.Activity
 import android.app.Instrumentation

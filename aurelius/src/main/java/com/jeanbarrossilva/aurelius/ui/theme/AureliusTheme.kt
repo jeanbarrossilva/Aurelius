@@ -33,6 +33,11 @@ import com.jeanbarrossilva.aurelius.ui.theme.visibility.VisibilityProvider
  * [visibility].
  **/
 object AureliusTheme {
+    /** Whether or not an [AureliusTheme] has been provided. **/
+    internal val isProvided
+        @Composable get() = animation != Animation.Default && colors != Colors.Unspecified &&
+            sizes != Sizes.Unspecified && text != Text.Default && visibility != Visibility.Zero
+
     /** Current [Animation] from [LocalAnimation]. **/
     val animation
         @Composable get() = LocalAnimation.current
@@ -52,6 +57,23 @@ object AureliusTheme {
     /** Current [Visibility] from [LocalVisibility]. **/
     val visibility
         @Composable get() = LocalVisibility.current
+
+    /**
+     * Throws an [IllegalStateException] if an [AureliusTheme] hasn't been provided.
+     *
+     * @param context Context in which the theme is required.
+     **/
+    @Composable
+    @Suppress("ComposableNaming")
+    internal fun requireFor(context: String) {
+        assert(context.isNotBlank()) {
+            "Context should be provided for a more descriptive error message."
+        }
+
+        if (!isProvided) {
+            error("$context requires an AureliusTheme.")
+        }
+    }
 }
 
 /**
@@ -77,9 +99,10 @@ fun AureliusTheme(content: @Composable () -> Unit) {
                                     small = RoundedCornerShape(14.dp),
                                     large = RoundedCornerShape(24.dp)
                                 ),
-                                text.material,
-                                content
-                            )
+                                text.material
+                            ) {
+                                content()
+                            }
                         }
                     }
                 }

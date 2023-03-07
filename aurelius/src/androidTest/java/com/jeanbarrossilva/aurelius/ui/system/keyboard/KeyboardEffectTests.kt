@@ -3,8 +3,8 @@ package com.jeanbarrossilva.aurelius.ui.system.keyboard
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.core.view.WindowInsetsCompat
 import androidx.test.platform.app.InstrumentationRegistry
-import com.jeanbarrossilva.aurelius.utils.activity
-import com.jeanbarrossilva.aurelius.utils.insetsControllerCompat
+import com.jeanbarrossilva.aurelius.fixtures.activity
+import com.jeanbarrossilva.aurelius.fixtures.insetsControllerCompat
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
