@@ -25,7 +25,7 @@ import com.jeanbarrossilva.aurelius.ui.layout.background.Background
 import com.jeanbarrossilva.aurelius.ui.layout.background.BackgroundContentSizing
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
 
-/** Tag that identifies the [Checkbox] for testing purposes. **/
+/** Tag that identifies the [_Checkbox] for testing purposes. **/
 internal const val CHECKBOX_TAG = "checkbox"
 
 /**
@@ -76,7 +76,7 @@ fun Checkbox(
 }
 
 @Composable
-internal fun Checkbox(
+internal fun _Checkbox(
     isChecked: Boolean,
     modifier: Modifier = Modifier,
     onToggle: (isChecked: Boolean) -> Unit = { }
@@ -90,7 +90,7 @@ internal fun Checkbox(
 private fun SelectedCheckboxPreview() {
     AureliusTheme {
         Background(contentSizing = BackgroundContentSizing.WRAP) {
-            Checkbox(isChecked = false)
+            _Checkbox(isChecked = false)
         }
     }
 }
@@ -101,7 +101,7 @@ private fun SelectedCheckboxPreview() {
 private fun UnselectedCheckboxPreview() {
     AureliusTheme {
         Background(contentSizing = BackgroundContentSizing.WRAP) {
-            Checkbox(isChecked = true)
+            _Checkbox(isChecked = true)
         }
     }
 }
