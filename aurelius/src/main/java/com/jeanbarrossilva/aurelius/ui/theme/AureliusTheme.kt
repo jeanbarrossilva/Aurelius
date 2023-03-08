@@ -1,14 +1,12 @@
 package com.jeanbarrossilva.aurelius.ui.theme
 
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocal
-import androidx.compose.ui.unit.dp
 import com.jeanbarrossilva.aurelius.composition.LocalMinimumTouchTargetProvider
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.animation
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.colors
+import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.shapes
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.sizes
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.text
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.visibility
@@ -18,6 +16,9 @@ import com.jeanbarrossilva.aurelius.ui.theme.animation.LocalAnimation
 import com.jeanbarrossilva.aurelius.ui.theme.colors.Colors
 import com.jeanbarrossilva.aurelius.ui.theme.colors.ColorsProvider
 import com.jeanbarrossilva.aurelius.ui.theme.colors.LocalColors
+import com.jeanbarrossilva.aurelius.ui.theme.shapes.LocalShapes
+import com.jeanbarrossilva.aurelius.ui.theme.shapes.Shapes
+import com.jeanbarrossilva.aurelius.ui.theme.shapes.ShapesProvider
 import com.jeanbarrossilva.aurelius.ui.theme.sizes.LocalSizes
 import com.jeanbarrossilva.aurelius.ui.theme.sizes.Sizes
 import com.jeanbarrossilva.aurelius.ui.theme.sizes.SizesProvider
@@ -36,8 +37,8 @@ object AureliusTheme {
     /** Whether or not an [AureliusTheme] has been provided. **/
     internal val isProvided
         @Composable get() = animation != Animation.Unspecified && colors != Colors.Unspecified &&
-            sizes != Sizes.Unspecified && text != Text.Unspecified &&
-            visibility != Visibility.Unspecified
+            shapes != Shapes.Unspecified && sizes != Sizes.Unspecified &&
+            text != Text.Unspecified && visibility != Visibility.Unspecified
 
     /** Current [Animation] from [LocalAnimation]. **/
     val animation
@@ -46,6 +47,10 @@ object AureliusTheme {
     /** Current [Colors] from [LocalColors]. **/
     val colors
         @Composable get() = LocalColors.current
+
+    /** Current [Shapes] from [LocalShapes]. **/
+    val shapes
+        @Composable get() = LocalShapes.current
 
     /** Current [Sizes] from [LocalSizes]. **/
     val sizes
@@ -86,24 +91,21 @@ object AureliusTheme {
  **/
 @Composable
 fun AureliusTheme(colors: Colors = Colors.default, content: @Composable () -> Unit) {
-    ColorsProvider(colors) {
-        SystemBarsConfigurationEffect()
+    AnimationProvider {
+        ColorsProvider(colors) {
+            SystemBarsConfigurationEffect()
 
-        AnimationProvider {
-            VisibilityProvider {
-                TextProvider {
+            LocalMinimumTouchTargetProvider {
+                ShapesProvider {
                     SizesProvider {
-                        LocalMinimumTouchTargetProvider {
-                            MaterialTheme(
-                                colors.material,
-                                MaterialTheme.shapes.copy(
-                                    extraSmall = CircleShape,
-                                    small = RoundedCornerShape(14.dp),
-                                    large = RoundedCornerShape(24.dp)
-                                ),
-                                text.material
-                            ) {
-                                content()
+                        TextProvider {
+                            VisibilityProvider {
+                                MaterialTheme(
+                                    colors.material,
+                                    shapes.material,
+                                    text.material,
+                                    content
+                                )
                             }
                         }
                     }

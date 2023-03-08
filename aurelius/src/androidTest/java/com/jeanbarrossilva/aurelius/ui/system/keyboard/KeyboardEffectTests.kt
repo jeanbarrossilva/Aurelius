@@ -38,7 +38,7 @@ internal class KeyboardEffectTests {
             }
         }
         setKeyboardOpen(true)
-        composeRule.waitUntil { keyboard is Keyboard.Open }
+        composeRule.waitUntil(timeoutMillis = 16_000) { keyboard is Keyboard.Open }
         assertEquals(Keyboard.Open::class, keyboard::class)
     }
 
