@@ -10,7 +10,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
@@ -37,7 +36,7 @@ fun ActionButton(
     IconButton(
         onClick,
         modifier
-            .clip(MaterialTheme.shapes.extraSmall)
+            .clip(AureliusTheme.shapes.tiny)
             .background(AureliusTheme.colors.container.primary)
             .padding(AureliusTheme.sizes.spacing.small)
             .size(20.dp)

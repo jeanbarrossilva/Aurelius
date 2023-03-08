@@ -13,7 +13,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalContentColor
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -59,7 +58,7 @@ fun @receiver:Suppress("Unused") MenuDrawerScope.Item(
     Row(
         modifier
             .fillMaxWidth()
-            .clip(MaterialTheme.shapes.small)
+            .clip(AureliusTheme.shapes.small)
             .clickable(role = Role.Button, onClick = onClick)
             .background(backgroundColor)
             .padding(spacing),

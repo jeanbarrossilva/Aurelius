@@ -23,7 +23,6 @@ import androidx.compose.material.icons.rounded.ThumbUp
 import androidx.compose.material.swipeable
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -41,8 +40,8 @@ import androidx.compose.ui.unit.IntOffset
 import com.jeanbarrossilva.aurelius.ui.layout.background.Background
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
 import com.jeanbarrossilva.aurelius.utils.plus
-import kotlin.math.roundToInt
 import kotlinx.coroutines.launch
+import kotlin.math.roundToInt
 
 internal val backgroundColor
     @Composable get() = AureliusTheme.colors.background
@@ -124,10 +123,8 @@ fun MenuDrawer(
     content: @Composable MenuDrawerScope.() -> Unit
 ) {
     val scrollableState = rememberScrollState()
-    val shape = MaterialTheme.shapes.extraLarge.copy(
-        topStart = ZeroCornerSize,
-        bottomStart = ZeroCornerSize
-    )
+    val shape =
+        AureliusTheme.shapes.huge.copy(topStart = ZeroCornerSize, bottomStart = ZeroCornerSize)
     val spacing = AureliusTheme.sizes.spacing.huge
 
     Column(

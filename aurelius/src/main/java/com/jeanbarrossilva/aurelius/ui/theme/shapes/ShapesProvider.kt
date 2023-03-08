@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 internal fun ShapesProvider(content: @Composable () -> Unit) {
     CompositionLocalProvider(
         LocalShapes provides Shapes(
+            huge = RoundedCornerShape(28.dp),
             large = RoundedCornerShape(24.dp),
             medium = RoundedCornerShape(12.dp),
             small = RoundedCornerShape(14.dp),
