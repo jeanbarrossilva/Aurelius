@@ -19,13 +19,13 @@ internal class CheckboxTests {
 
     @Test
     fun isNotSelectedWhenUnchecked() {
-        composeRule.setContent { _Checkbox(isChecked = false) }
+        composeRule.setContent { Checkbox(isChecked = false) }
         composeRule.onNodeWithTag(CHECKBOX_TAG).assertIsNotSelected()
     }
 
     @Test
     fun isSelectedWhenChecked() {
-        composeRule.setContent { _Checkbox(isChecked = true) }
+        composeRule.setContent { Checkbox(isChecked = true) }
         composeRule.onNodeWithTag(CHECKBOX_TAG).performClick()
         composeRule.onNodeWithTag(CHECKBOX_TAG).assertIsSelected()
     }
@@ -43,7 +43,7 @@ internal class CheckboxTests {
     private fun assertCheckedChangesOnClick(before: Boolean, after: Boolean) {
         var isChecked by mutableStateOf(before)
         composeRule.setContent {
-            _Checkbox(isChecked, onToggle = { isChecked = it })
+            Checkbox(isChecked, onToggle = { isChecked = it })
         }
         composeRule.onNodeWithTag(CHECKBOX_TAG).performClick()
         if (after) assertTrue(isChecked) else assertFalse(isChecked)

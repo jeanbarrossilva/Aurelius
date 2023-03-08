@@ -56,6 +56,7 @@ fun Checkbox(
     Button(
         onClick = { onToggle(!isChecked) },
         modifier
+            .testTag(CHECKBOX_TAG)
             .semantics { selected = isChecked }
             .size(32.dp),
         colors = buttonColors(
@@ -75,13 +76,12 @@ fun Checkbox(
 }
 
 @Composable
-@Suppress("ComposableNaming")
-internal fun _Checkbox(
+internal fun Checkbox(
     isChecked: Boolean,
     modifier: Modifier = Modifier,
     onToggle: (isChecked: Boolean) -> Unit = { }
 ) {
-    Checkbox(isChecked, onToggle, modifier.testTag(CHECKBOX_TAG))
+    Checkbox(isChecked, onToggle, modifier)
 }
 
 @Composable
@@ -90,7 +90,7 @@ internal fun _Checkbox(
 private fun SelectedCheckboxPreview() {
     AureliusTheme {
         Background(contentSizing = BackgroundContentSizing.WRAP) {
-            _Checkbox(isChecked = false)
+            Checkbox(isChecked = false)
         }
     }
 }
@@ -101,7 +101,7 @@ private fun SelectedCheckboxPreview() {
 private fun UnselectedCheckboxPreview() {
     AureliusTheme {
         Background(contentSizing = BackgroundContentSizing.WRAP) {
-            _Checkbox(isChecked = true)
+            Checkbox(isChecked = true)
         }
     }
 }
