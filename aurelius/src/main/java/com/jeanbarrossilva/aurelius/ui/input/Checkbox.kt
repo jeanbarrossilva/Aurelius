@@ -25,7 +25,7 @@ import com.jeanbarrossilva.aurelius.ui.layout.background.Background
 import com.jeanbarrossilva.aurelius.ui.layout.background.BackgroundContentSizing
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
 
-/** Tag that identifies the [Checkbox] for testing purposes. **/
+/** Tag that identifies the [_Checkbox] for testing purposes. **/
 internal const val CHECKBOX_TAG = "checkbox"
 
 /**
@@ -56,6 +56,7 @@ fun Checkbox(
     Button(
         onClick = { onToggle(!isChecked) },
         modifier
+            .testTag(CHECKBOX_TAG)
             .semantics { selected = isChecked }
             .size(32.dp),
         colors = buttonColors(
@@ -75,13 +76,12 @@ fun Checkbox(
 }
 
 @Composable
-@Suppress("ComposableNaming")
 internal fun _Checkbox(
     isChecked: Boolean,
     modifier: Modifier = Modifier,
     onToggle: (isChecked: Boolean) -> Unit = { }
 ) {
-    Checkbox(isChecked, onToggle, modifier.testTag(CHECKBOX_TAG))
+    Checkbox(isChecked, onToggle, modifier)
 }
 
 @Composable

@@ -140,6 +140,7 @@ fun TopAppBar(
 
     ConstraintLayout(
         modifier
+            .testTag(TOP_APP_BAR_TAG)
             .fillMaxWidth()
             .`if`(currentHeight.isSpecified) { height(currentHeight) }
             .onPlaced {
@@ -185,7 +186,7 @@ internal fun TopAppBar(isCompact: Boolean, modifier: Modifier = Modifier) {
         isCompact,
         navigationButton = { MenuButton(onClick = { }) },
         title = { Text("Title") },
-        modifier.testTag(TOP_APP_BAR_TAG),
+        modifier,
         subtitle = { Text("Subtitle") }
     )
 }

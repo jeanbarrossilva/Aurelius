@@ -61,7 +61,7 @@ fun EditableText(
     BasicTextField(
         text,
         onTextChange,
-        modifier,
+        modifier.testTag(EDITABLE_TEXT_TAG),
         enabled = isActive,
         textStyle = textStyle,
         keyboardOptions = remember(imeAction) { KeyboardOptions(imeAction = imeAction) },
@@ -124,7 +124,7 @@ fun EditableText(
     BasicTextField(
         value,
         onValueChange,
-        modifier,
+        modifier.testTag(EDITABLE_TEXT_TAG),
         enabled = isActive,
         textStyle = textStyle,
         keyboardOptions = remember(imeAction) { KeyboardOptions(imeAction = imeAction) },
@@ -172,13 +172,7 @@ internal fun EditableText(
     isActive: Boolean = true,
     colors: EditableTextColors = EditableTextDefaults.colors()
 ) {
-    EditableText(
-        text,
-        onTextChange,
-        isActive,
-        modifier.testTag(EDITABLE_TEXT_TAG),
-        colors = colors
-    ) {
+    EditableText(text, onTextChange, isActive, modifier, colors = colors) {
         Text("Label")
     }
 }
