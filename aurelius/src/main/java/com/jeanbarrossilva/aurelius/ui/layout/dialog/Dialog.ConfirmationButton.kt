@@ -8,12 +8,16 @@ import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import com.jeanbarrossilva.aurelius.ui.layout.background.Background
 import com.jeanbarrossilva.aurelius.ui.layout.background.BackgroundContentSizing
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
+
+/** Tag that identifies the [ConfirmationButton] for testing purposes. **/
+const val DIALOG_CONFIRMATION_BUTTON_TAG = "dialog_confirmation_button"
 
 /**
  * Confirmation [Button] of a [Dialog].
@@ -30,7 +34,7 @@ fun ConfirmationButton(
 ) {
     Button(
         onClick,
-        modifier,
+        modifier.testTag(DIALOG_CONFIRMATION_BUTTON_TAG),
         shape = DialogDefaults.buttonShape,
         colors = ButtonDefaults.buttonColors(
             containerColor = AureliusTheme.colors.container.primary,
