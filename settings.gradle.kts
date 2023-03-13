@@ -1,1 +1,1 @@
-include(":app", ":aurelius")
+include(":app", ":aurelius", ":aurelius-test")

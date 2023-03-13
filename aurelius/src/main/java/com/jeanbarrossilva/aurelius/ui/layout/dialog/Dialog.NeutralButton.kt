@@ -1,6 +1,7 @@
 package com.jeanbarrossilva.aurelius.ui.layout.dialog // ktlint-disable filename
 
 import android.content.res.Configuration
+import androidx.annotation.RestrictTo
 import androidx.compose.material3.Button
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
@@ -15,6 +16,7 @@ import com.jeanbarrossilva.aurelius.ui.layout.background.BackgroundContentSizing
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
 
 /** Tag that identifies the [NeutralButton] for testing purposes. **/
+@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 const val DIALOG_NEUTRAL_BUTTON_TAG = "dialog_neutral_button"
 
 /**

@@ -12,7 +12,7 @@ publishing {
     publications {
         register<MavenPublication>(Variants.RELEASE) {
             groupId = Metadata.GROUP
-            artifactId = Metadata.ARTIFACT
+            artifactId = Metadata.artifact("test")
             version = Versions.Aurelius.NAME
 
             afterEvaluate {
@@ -24,7 +24,7 @@ publishing {
 
 @Suppress("UnstableApiUsage")
 android {
-    namespace = Metadata.NAMESPACE
+    namespace = Metadata.namespace("test")
     compileSdk = Versions.Aurelius.SDK_COMPILE
 
     defaultConfig {
@@ -72,27 +72,8 @@ android {
     }
 }
 
-@Suppress("SpellCheckingInspection")
 dependencies {
-    api("androidx.compose.material3:material3:${Versions.COMPOSE_MATERIAL_3}")
-    api("androidx.compose.ui:ui-tooling:${Versions.COMPOSE_UI}")
-    api("androidx.customview:customview:${Versions.CUSTOMVIEW}")
-    api("androidx.customview:customview-poolingcontainer:${Versions.CUSTOMVIEW_POOLINGCONTAINER}")
-    api("androidx.fragment:fragment-ktx:${Versions.FRAGMENT}")
-    api("androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.LIFECYCLE}")
-    api("com.google.android.material:material:${Versions.MATERIAL}")
-
-    implementation("com.google.accompanist:accompanist-pager:${Versions.ACCOMPANIST}")
-    implementation(
-        "com.google.accompanist:accompanist-placeholder-material:${Versions.ACCOMPANIST}"
-    )
-    implementation("com.google.accompanist:accompanist-systemuicontroller:${Versions.ACCOMPANIST}")
-    implementation("androidx.appcompat:appcompat:${Versions.APPCOMPAT}")
-    implementation("androidx.compose.material:material:${Versions.COMPOSE_MATERIAL}")
-    implementation(
-        "androidx.constraintlayout:constraintlayout-compose:${Versions.CONSTRAINTLAYOUT_COMPOSE}"
-    )
-
-    androidTestImplementation(Libraries.COMPOSE_UI_TEST_JUNIT_4)
-    androidTestImplementation(Libraries.COMPOSE_UI_TEST_MANIFEST)
+    implementation(project(":aurelius"))
+    implementation(Libraries.COMPOSE_UI_TEST_JUNIT_4)
+    implementation(Libraries.COMPOSE_UI_TEST_MANIFEST)
 }
