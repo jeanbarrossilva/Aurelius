@@ -8,6 +8,7 @@ import com.jeanbarrossilva.aurelius.ui.layout.scaffold.FloatingActionButton
 import com.jeanbarrossilva.aurelius.ui.layout.scaffold.topappbar.BackButton
 import com.jeanbarrossilva.aurelius.ui.layout.scaffold.topappbar.CloseButton
 import com.jeanbarrossilva.aurelius.ui.layout.scaffold.topappbar.DeleteAction
+import com.jeanbarrossilva.aurelius.ui.layout.scaffold.topappbar.MenuButton
 import com.jeanbarrossilva.aurelius.ui.layout.scaffold.topappbar.TopAppBar
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
 import org.junit.Rule
@@ -69,6 +70,14 @@ internal class ComposeTestRuleExtensionsTests {
             }
         }
         composeRule.onFloatingActionButton().assertExists()
+    }
+
+    @Test
+    fun menuButtonExists() {
+        composeRule.setContent {
+            MenuButton(onClick = { })
+        }
+        composeRule.onMenuButton().assertExists()
     }
 
     @Test
