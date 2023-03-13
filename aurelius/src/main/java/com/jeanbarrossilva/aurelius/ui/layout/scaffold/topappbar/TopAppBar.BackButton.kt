@@ -1,6 +1,7 @@
 package com.jeanbarrossilva.aurelius.ui.layout.scaffold.topappbar // ktlint-disable filename
 
 import android.content.res.Configuration
+import androidx.annotation.RestrictTo
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBack
@@ -12,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
@@ -19,6 +21,10 @@ import com.jeanbarrossilva.aurelius.R
 import com.jeanbarrossilva.aurelius.ui.layout.background.Background
 import com.jeanbarrossilva.aurelius.ui.layout.background.BackgroundContentSizing
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
+
+/** Tag that identifies the [BackButton] for testing purposes. **/
+@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
+const val TOP_APP_BAR_BACK_BUTTON_TAG = "${TOP_APP_BAR_TAG}_back_button"
 
 /**
  * Navigation button for going back.
@@ -38,7 +44,7 @@ fun BackButton(
         LayoutDirection.Rtl -> Icons.Rounded.ArrowForward
     }
 
-    IconButton(onClick, modifier) {
+    IconButton(onClick, modifier.testTag(TOP_APP_BAR_BACK_BUTTON_TAG)) {
         Icon(
             vector,
             contentDescription = stringResource(R.string.aurelius_top_app_bar_back_button),

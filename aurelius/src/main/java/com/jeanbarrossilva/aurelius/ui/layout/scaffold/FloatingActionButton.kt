@@ -1,6 +1,7 @@
 package com.jeanbarrossilva.aurelius.ui.layout.scaffold
 
 import android.content.res.Configuration
+import androidx.annotation.RestrictTo
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -21,6 +22,7 @@ import com.jeanbarrossilva.aurelius.ui.layout.scaffold.FloatingActionButton as _
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
 
 /** Tag that identifies the [FloatingActionButton] for testing purposes. **/
+@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 const val FLOATING_ACTION_BUTTON_TAG = "floating_action_button"
 
 /**

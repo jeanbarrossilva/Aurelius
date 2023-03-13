@@ -1,6 +1,7 @@
 package com.jeanbarrossilva.aurelius.ui.layout.scaffold.topappbar
 
 import android.content.res.Configuration
+import androidx.annotation.RestrictTo
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -37,7 +38,8 @@ import com.jeanbarrossilva.aurelius.utils.`if`
 import com.jeanbarrossilva.aurelius.utils.toDpSize
 
 /** Tag that identifies the [TopAppBar] for testing purposes. **/
-internal const val TOP_APP_BAR_TAG = "top_app_bar"
+@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
+const val TOP_APP_BAR_TAG = "top_app_bar"
 
 internal val topAppBarBackgroundColor
     @Composable get() = AureliusTheme.colors.container.secondary

@@ -1,6 +1,7 @@
 package com.jeanbarrossilva.aurelius.ui.layout.dialog
 
 import android.content.res.Configuration
+import androidx.annotation.RestrictTo
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
@@ -10,9 +11,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.window.Dialog
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
+
+/** Tag that identifies the [Dialog] for testing purposes. **/
+@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
+const val DIALOG_TAG = "dialog"
 
 /**
  * Displays information that should, ideally, be prioritized over what the user was doing before in
@@ -41,6 +47,7 @@ fun Dialog(
             modifier
                 .clip(AureliusTheme.shapes.large)
                 .background(AureliusTheme.colors.background)
+                .testTag(DIALOG_TAG)
         ) {
             Split(Modifier.padding(AureliusTheme.sizes.spacing.large)) {
                 Headline(title, body)
