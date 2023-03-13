@@ -2,6 +2,7 @@ package com.jeanbarrossilva.aurelius.test
 
 import androidx.compose.ui.test.junit4.createComposeRule
 import com.jeanbarrossilva.aurelius.ui.layout.dialog.ConfirmationButton
+import com.jeanbarrossilva.aurelius.ui.layout.dialog.Dialog
 import com.jeanbarrossilva.aurelius.ui.layout.dialog.NeutralButton
 import com.jeanbarrossilva.aurelius.ui.layout.scaffold.FloatingActionButton
 import com.jeanbarrossilva.aurelius.ui.layout.scaffold.topappbar.BackButton
@@ -49,6 +50,16 @@ internal class ComposeTestRuleExtensionsTests {
             }
         }
         composeRule.onDeleteAction().assertExists()
+    }
+
+    @Test
+    fun dialogExists() {
+        composeRule.setContent {
+            AureliusTheme {
+                Dialog(title = { }, body = { }, onDismissalRequest = { })
+            }
+        }
+        composeRule.onDialog().assertExists()
     }
 
     @Test

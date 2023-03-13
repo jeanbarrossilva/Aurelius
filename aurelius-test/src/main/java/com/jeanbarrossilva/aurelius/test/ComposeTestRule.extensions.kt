@@ -6,6 +6,8 @@ import androidx.compose.ui.test.onNodeWithTag
 import com.jeanbarrossilva.aurelius.ui.layout.dialog.ConfirmationButton
 import com.jeanbarrossilva.aurelius.ui.layout.dialog.DIALOG_CONFIRMATION_BUTTON_TAG
 import com.jeanbarrossilva.aurelius.ui.layout.dialog.DIALOG_NEUTRAL_BUTTON_TAG
+import com.jeanbarrossilva.aurelius.ui.layout.dialog.DIALOG_TAG
+import com.jeanbarrossilva.aurelius.ui.layout.dialog.Dialog
 import com.jeanbarrossilva.aurelius.ui.layout.dialog.NeutralButton
 import com.jeanbarrossilva.aurelius.ui.layout.scaffold.FLOATING_ACTION_BUTTON_TAG
 import com.jeanbarrossilva.aurelius.ui.layout.scaffold.FloatingActionButton
@@ -35,6 +37,11 @@ fun ComposeTestRule.onConfirmationButton(): SemanticsNodeInteraction {
 /** [SemanticsNodeInteraction] of a [DeleteAction]. **/
 fun ComposeTestRule.onDeleteAction(): SemanticsNodeInteraction {
     return onNodeWithTag(TOP_APP_BAR_DELETE_ACTION_TAG)
+}
+
+/** [SemanticsNodeInteraction] of a [Dialog]. **/
+fun ComposeTestRule.onDialog(): SemanticsNodeInteraction {
+    return onNodeWithTag(DIALOG_TAG)
 }
 
 /** [SemanticsNodeInteraction] of a [FloatingActionButton]. **/

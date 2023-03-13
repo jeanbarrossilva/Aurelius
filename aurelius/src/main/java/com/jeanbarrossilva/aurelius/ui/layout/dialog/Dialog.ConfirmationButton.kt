@@ -19,7 +19,7 @@ import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
 
 /** Tag that identifies the [ConfirmationButton] for testing purposes. **/
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-const val DIALOG_CONFIRMATION_BUTTON_TAG = "dialog_confirmation_button"
+const val DIALOG_CONFIRMATION_BUTTON_TAG = "${DIALOG_TAG}_confirmation_button"
 
 /**
  * Confirmation [Button] of a [Dialog].

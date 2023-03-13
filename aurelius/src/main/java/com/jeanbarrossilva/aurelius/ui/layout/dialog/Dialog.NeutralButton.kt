@@ -17,7 +17,7 @@ import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
 
 /** Tag that identifies the [NeutralButton] for testing purposes. **/
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-const val DIALOG_NEUTRAL_BUTTON_TAG = "dialog_neutral_button"
+const val DIALOG_NEUTRAL_BUTTON_TAG = "${DIALOG_TAG}_neutral_button"
 
 /**
  * Neutral, non-highlighted [Button] of a [Dialog].
