@@ -1,6 +1,7 @@
 package com.jeanbarrossilva.aurelius.ui.theme.sizes
 
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 
 /**
  * Sizes for spacing, such as the distance between one component and another or padding.
@@ -27,5 +28,9 @@ data class Spacing internal constructor(
             small = Dp.Unspecified,
             tiny = Dp.Unspecified
         )
+
+        /** [Spacing] that's provided by default. **/
+        val Default =
+            Spacing(huge = 32.dp, large = 24.dp, medium = 16.dp, small = 8.dp, tiny = 4.dp)
     }
 }

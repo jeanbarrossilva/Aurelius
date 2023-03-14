@@ -15,5 +15,8 @@ data class Visibility internal constructor(
     companion object {
         /** [Visibility] with zeroed values. **/
         internal val Unspecified = Visibility(medium = 0f, low = 0f)
+
+        /** [Visibility] that's provided by default. **/
+        val Default = Visibility(medium = .5f, low = .38f)
     }
 }

@@ -1,5 +1,6 @@
 package com.jeanbarrossilva.aurelius.ui.theme.shapes
 
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.Shapes as MaterialShapes
@@ -32,6 +33,15 @@ data class Shapes internal constructor(
             medium = RoundedCornerShape(0.dp),
             small = RoundedCornerShape(0.dp),
             tiny = RoundedCornerShape(0.dp)
+        )
+
+        /** [Shapes] that are provided by default. **/
+        val Default = Shapes(
+            huge = RoundedCornerShape(28.dp),
+            large = RoundedCornerShape(24.dp),
+            medium = RoundedCornerShape(12.dp),
+            small = RoundedCornerShape(14.dp),
+            tiny = CircleShape
         )
     }
 }
