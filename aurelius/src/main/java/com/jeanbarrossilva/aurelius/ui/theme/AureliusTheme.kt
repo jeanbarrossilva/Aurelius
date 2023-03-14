@@ -6,7 +6,6 @@ import androidx.compose.runtime.CompositionLocal
 import com.jeanbarrossilva.aurelius.composition.LocalMinimumTouchTargetProvider
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.animation
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.colors
-import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.shapes
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.sizes
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.text
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.visibility
@@ -83,22 +82,33 @@ object AureliusTheme {
 }
 
 /**
- * Themes the given [content] by providing [colors], [text], [sizes] and [visibility][visibility]
- * values to their respective [CompositionLocal]s and sets up the system bars.
+ * Themes the given [content] by providing [animation], [colors], [text], [shapes], [sizes] and
+ * [visibility] values to their respective [CompositionLocal]s and sets up the system bars.
  *
+ * @param animation [Animation] for animating the [content].
  * @param colors [Colors] for coloring the [content].
+ * @param shapes [Shapes] for shaping the [content].
+ * @param sizes [Sizes] for sizing the [content].
+ * @param text [Text] for configuring the text appearance of [content].
  * @param content Content to be themed.
  **/
 @Composable
-fun AureliusTheme(colors: Colors = Colors.default, content: @Composable () -> Unit) {
-    AnimationProvider {
+fun AureliusTheme(
+    animation: Animation = Animation.Default,
+    colors: Colors = Colors.default,
+    shapes: Shapes = Shapes.Default,
+    sizes: Sizes = Sizes.default,
+    text: Text = Text.default,
+    content: @Composable () -> Unit
+) {
+    AnimationProvider(animation) {
         ColorsProvider(colors) {
             SystemBarsConfigurationEffect()
 
             LocalMinimumTouchTargetProvider {
-                ShapesProvider {
-                    SizesProvider {
-                        TextProvider {
+                ShapesProvider(shapes) {
+                    SizesProvider(sizes) {
+                        TextProvider(text) {
                             VisibilityProvider {
                                 MaterialTheme(
                                     colors.material,

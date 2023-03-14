@@ -1,7 +1,14 @@
 package com.jeanbarrossilva.aurelius.ui.theme.text
 
 import androidx.compose.material3.Typography
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
+import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
+import com.jeanbarrossilva.aurelius.utils.DMSans
+import com.jeanbarrossilva.aurelius.utils.typography.TypographyTokens
 
 /**
  * [TextStyle]s for various contexts, representing different hierarchies.
@@ -45,5 +52,31 @@ data class Text internal constructor(
             body = TextStyle.Default,
             label = TextStyle.Default
         )
+
+        /** [Text] that's provided by default. **/
+        val default
+            @Composable get() = Text(
+                headline = TypographyTokens.HeadlineSmall.copy(
+                    AureliusTheme.colors.text.highlighted,
+                    fontSize = 32.sp,
+                    fontWeight = FontWeight.Bold,
+                    fontFamily = FontFamily.DMSans
+                ),
+                title = Title.default,
+                body = TypographyTokens.BodyLarge.copy(
+                    AureliusTheme.colors.text.default,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold,
+                    fontFamily = FontFamily.DMSans,
+                    letterSpacing = .3.sp,
+                    lineHeight = 18.sp
+                ),
+                label = TypographyTokens.BodySmall.copy(
+                    AureliusTheme.colors.text.highlighted,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                    fontFamily = FontFamily.DMSans
+                )
+            )
     }
 }
