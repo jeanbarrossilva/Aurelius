@@ -6,6 +6,7 @@ import androidx.compose.runtime.CompositionLocal
 import androidx.compose.runtime.CompositionLocalProvider
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.animation
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.colors
+import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.shapes
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.sizes
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.text
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.visibility
@@ -23,8 +24,8 @@ import com.jeanbarrossilva.aurelius.ui.theme.visibility.LocalVisibility
 import com.jeanbarrossilva.aurelius.ui.theme.visibility.Visibility
 
 /**
- * Provider of the theme's configuration values, such as [animation], [colors], [sizes], [text] and
- * [visibility].
+ * Provider of the theme's configuration values, such as [animation], [colors], [shapes], [sizes],
+ * [text] and [visibility].
  **/
 object AureliusTheme {
     /** Whether or not an [AureliusTheme] has been provided. **/
