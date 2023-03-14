@@ -3,30 +3,24 @@ package com.jeanbarrossilva.aurelius.ui.theme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocal
-import com.jeanbarrossilva.aurelius.composition.LocalMinimumTouchTargetProvider
+import androidx.compose.runtime.CompositionLocalProvider
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.animation
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.colors
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.sizes
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.text
 import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme.visibility
 import com.jeanbarrossilva.aurelius.ui.theme.animation.Animation
-import com.jeanbarrossilva.aurelius.ui.theme.animation.AnimationProvider
 import com.jeanbarrossilva.aurelius.ui.theme.animation.LocalAnimation
 import com.jeanbarrossilva.aurelius.ui.theme.colors.Colors
-import com.jeanbarrossilva.aurelius.ui.theme.colors.ColorsProvider
 import com.jeanbarrossilva.aurelius.ui.theme.colors.LocalColors
 import com.jeanbarrossilva.aurelius.ui.theme.shapes.LocalShapes
 import com.jeanbarrossilva.aurelius.ui.theme.shapes.Shapes
-import com.jeanbarrossilva.aurelius.ui.theme.shapes.ShapesProvider
 import com.jeanbarrossilva.aurelius.ui.theme.sizes.LocalSizes
 import com.jeanbarrossilva.aurelius.ui.theme.sizes.Sizes
-import com.jeanbarrossilva.aurelius.ui.theme.sizes.SizesProvider
 import com.jeanbarrossilva.aurelius.ui.theme.text.LocalText
 import com.jeanbarrossilva.aurelius.ui.theme.text.Text
-import com.jeanbarrossilva.aurelius.ui.theme.text.TextProvider
 import com.jeanbarrossilva.aurelius.ui.theme.visibility.LocalVisibility
 import com.jeanbarrossilva.aurelius.ui.theme.visibility.Visibility
-import com.jeanbarrossilva.aurelius.ui.theme.visibility.VisibilityProvider
 
 /**
  * Provider of the theme's configuration values, such as [animation], [colors], [sizes], [text] and
@@ -103,26 +97,15 @@ fun AureliusTheme(
     visibility: Visibility = Visibility.Default,
     content: @Composable () -> Unit
 ) {
-    AnimationProvider(animation) {
-        ColorsProvider(colors) {
-            SystemBarsConfigurationEffect()
-
-            LocalMinimumTouchTargetProvider {
-                ShapesProvider(shapes) {
-                    SizesProvider(sizes) {
-                        TextProvider(text) {
-                            VisibilityProvider(visibility) {
-                                MaterialTheme(
-                                    colors.material,
-                                    shapes.material,
-                                    text.material,
-                                    content
-                                )
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    CompositionLocalProvider(
+        LocalAnimation provides animation,
+        LocalColors provides colors,
+        LocalShapes provides shapes,
+        LocalSizes provides sizes,
+        LocalText provides text,
+        LocalVisibility provides visibility
+    ) {
+        SystemBarsConfigurationEffect()
+        MaterialTheme(colors.material, shapes.material, text.material, content)
     }
 }
