@@ -90,6 +90,7 @@ object AureliusTheme {
  * @param shapes [Shapes] for shaping the [content].
  * @param sizes [Sizes] for sizing the [content].
  * @param text [Text] for configuring the text appearance of [content].
+ * @param visibility [Visibility] for setting opacity in the [content].
  * @param content Content to be themed.
  **/
 @Composable
@@ -99,6 +100,7 @@ fun AureliusTheme(
     shapes: Shapes = Shapes.Default,
     sizes: Sizes = Sizes.default,
     text: Text = Text.default,
+    visibility: Visibility = Visibility.Default,
     content: @Composable () -> Unit
 ) {
     AnimationProvider(animation) {
@@ -109,7 +111,7 @@ fun AureliusTheme(
                 ShapesProvider(shapes) {
                     SizesProvider(sizes) {
                         TextProvider(text) {
-                            VisibilityProvider {
+                            VisibilityProvider(visibility) {
                                 MaterialTheme(
                                     colors.material,
                                     shapes.material,
