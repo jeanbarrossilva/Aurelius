@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="aurelius_sizes_spacing_huge">32dp</dimen>
+    <dimen name="aurelius_sizes_spacing_large">24dp</dimen>
+    <dimen name="aurelius_sizes_spacing_medium">16dp</dimen>
+    <dimen name="aurelius_sizes_spacing_small">8dp</dimen>
+    <dimen name="aurelius_sizes_spacing_tiny">4dp</dimen>
+</resources>

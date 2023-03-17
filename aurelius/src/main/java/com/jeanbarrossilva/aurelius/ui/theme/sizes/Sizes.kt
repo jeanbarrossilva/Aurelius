@@ -16,6 +16,6 @@ data class Sizes internal constructor(val spacing: Spacing, val margin: Margin) 
 
         /** [Sizes] that are provided by default. **/
         val default
-            @Composable get() = Sizes(Spacing.Default, Margin.default)
+            @Composable get() = Sizes(Spacing.default, Margin.default)
     }
 }
