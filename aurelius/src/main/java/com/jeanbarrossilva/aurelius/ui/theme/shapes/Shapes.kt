@@ -1,9 +1,11 @@
 package com.jeanbarrossilva.aurelius.ui.theme.shapes
 
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.ui.unit.dp
 import androidx.compose.material3.Shapes as MaterialShapes
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.unit.dp
+import com.jeanbarrossilva.aurelius.R
 
 /**
  * [RoundedCornerShape]s for shaping UI components based on their size.
@@ -36,12 +38,13 @@ data class Shapes internal constructor(
         )
 
         /** [Shapes] that are provided by default. **/
-        val Default = Shapes(
-            huge = RoundedCornerShape(28.dp),
-            large = RoundedCornerShape(24.dp),
-            medium = RoundedCornerShape(12.dp),
-            small = RoundedCornerShape(14.dp),
-            tiny = CircleShape
-        )
+        val default
+            @Composable get() = Shapes(
+                huge = RoundedCornerShape(dimensionResource(R.dimen.aurelius_shapes_huge_size)),
+                large = RoundedCornerShape(dimensionResource(R.dimen.aurelius_shapes_large_size)),
+                medium = RoundedCornerShape(dimensionResource(R.dimen.aurelius_shapes_medium_size)),
+                small = RoundedCornerShape(dimensionResource(R.dimen.aurelius_shapes_small_size)),
+                tiny = RoundedCornerShape(dimensionResource(R.dimen.aurelius_shapes_tiny_size))
+            )
     }
 }

@@ -92,7 +92,7 @@ object AureliusTheme {
 fun AureliusTheme(
     animation: Animation = Animation.Default,
     colors: Colors = Colors.default,
-    shapes: Shapes = Shapes.Default,
+    shapes: Shapes = Shapes.default,
     sizes: Sizes = Sizes.default,
     text: Text = Text.default,
     visibility: Visibility = Visibility.Default,
