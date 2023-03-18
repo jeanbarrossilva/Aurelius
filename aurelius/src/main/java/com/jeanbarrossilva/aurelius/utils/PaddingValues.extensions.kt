@@ -8,18 +8,18 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.dp
 
 /** End padding calculated through the [LocalLayoutDirection]. **/
-internal val PaddingValues.end
+val PaddingValues.end
     @Composable get() = calculateEndPadding(LocalLayoutDirection.current)
 
 /** Whether or not the given [PaddingValues] have a negative value. **/
-internal val PaddingValues.isNegative
+val PaddingValues.isNegative
     @Composable get() = start < 0.dp ||
         calculateTopPadding() < 0.dp ||
         end < 0.dp ||
         calculateBottomPadding() < 0.dp
 
 /** Start padding calculated through the [LocalLayoutDirection]. **/
-internal val PaddingValues.start
+val PaddingValues.start
     @Composable get() = calculateStartPadding(LocalLayoutDirection.current)
 
 /**

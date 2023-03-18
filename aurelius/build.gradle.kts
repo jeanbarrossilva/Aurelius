@@ -93,6 +93,8 @@ dependencies {
         "androidx.constraintlayout:constraintlayout-compose:${Versions.CONSTRAINTLAYOUT_COMPOSE}"
     )
 
+    testImplementation("junit:junit:${Versions.JUNIT}")
+
     androidTestImplementation(Libraries.COMPOSE_UI_TEST_JUNIT_4)
     androidTestImplementation(Libraries.COMPOSE_UI_TEST_MANIFEST)
 }
