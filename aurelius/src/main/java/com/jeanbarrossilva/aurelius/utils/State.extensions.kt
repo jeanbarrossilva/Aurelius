@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.TextUnit
  * @param animationSpec [AnimationSpec] with which the [targetValue] will be animated.
  **/
 @Composable
-internal fun animateTextUnitAsState(
+fun animateTextUnitAsState(
     targetValue: TextUnit,
     animationSpec: AnimationSpec<Dp> = spring(visibilityThreshold = Dp.VisibilityThreshold)
 ): State<TextUnit> {

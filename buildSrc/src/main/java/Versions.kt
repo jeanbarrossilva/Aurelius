@@ -13,6 +13,7 @@ object Versions {
     const val CUSTOMVIEW_POOLINGCONTAINER = "1.0.0"
     const val FRAGMENT = "1.5.3"
     const val GRADLE = "7.4.1"
+    const val JUNIT = "4.13.2"
     const val KOTLIN = "1.8.10"
     const val LIFECYCLE = "2.5.1"
     const val MATERIAL = "1.6.1"

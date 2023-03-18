@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.TextUnit
  *
  * @param density [Density] through which this will be converted.
  **/
-internal fun Dp.toSp(density: Density): TextUnit {
+fun Dp.toSp(density: Density): TextUnit {
     return with(density) {
         toSp()
     }
