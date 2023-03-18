@@ -4,7 +4,7 @@
     <dimen name="aurelius_shapes_large_size">24dp</dimen>
     <dimen name="aurelius_shapes_medium_size">12dp</dimen>
     <dimen name="aurelius_shapes_small_size">14dp</dimen>
-    <dimen name="aurelius_shapes_tiny_size">2147483647dp</dimen>
+    <fraction name="aurelius_shapes_tiny_size">50%</fraction>
 
     <style
         name="Theme.Aurelius.Shapes.Huge"
@@ -33,6 +33,6 @@
     <style
         name="Theme.Aurelius.Shapes.Tiny"
         parent="ShapeAppearance.Material3.SmallComponent">
-        <item name="cornerSize">@dimen/aurelius_shapes_tiny_size</item>
+        <item name="cornerSize">@fraction/aurelius_shapes_tiny_size</item>
     </style>
 </resources>
