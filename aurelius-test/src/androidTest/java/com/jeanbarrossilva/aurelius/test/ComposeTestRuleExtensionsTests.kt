@@ -1,6 +1,9 @@
 package com.jeanbarrossilva.aurelius.test
 
 import androidx.compose.ui.test.junit4.createComposeRule
+import com.jeanbarrossilva.aurelius.ui.actionable.button.Button
+import com.jeanbarrossilva.aurelius.ui.actionable.button.PrimaryButton
+import com.jeanbarrossilva.aurelius.ui.actionable.button.SecondaryButton
 import com.jeanbarrossilva.aurelius.ui.layout.dialog.ConfirmationButton
 import com.jeanbarrossilva.aurelius.ui.layout.dialog.Dialog
 import com.jeanbarrossilva.aurelius.ui.layout.dialog.NeutralButton
@@ -24,6 +27,17 @@ internal class ComposeTestRuleExtensionsTests {
             BackButton(onClick = { })
         }
         composeRule.onBackButton().assertExists()
+    }
+
+    @Test
+    fun buttonExists() {
+        composeRule.setContent {
+            AureliusTheme {
+                Button(onClick = { }) {
+                }
+            }
+        }
+        composeRule.onButton().assertExists()
     }
 
     @Test
@@ -87,6 +101,28 @@ internal class ComposeTestRuleExtensionsTests {
             }
         }
         composeRule.onNeutralButton().assertExists()
+    }
+
+    @Test
+    fun primaryButtonExists() {
+        composeRule.setContent {
+            AureliusTheme {
+                PrimaryButton(onClick = { }) {
+                }
+            }
+        }
+        composeRule.onPrimaryButton().assertExists()
+    }
+
+    @Test
+    fun secondaryButtonExists() {
+        composeRule.setContent {
+            AureliusTheme {
+                SecondaryButton(onClick = { }) {
+                }
+            }
+        }
+        composeRule.onSecondaryButton().assertExists()
     }
 
     @Test

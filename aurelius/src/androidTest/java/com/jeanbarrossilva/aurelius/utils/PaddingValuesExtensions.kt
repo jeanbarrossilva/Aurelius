@@ -42,6 +42,16 @@ internal class PaddingValuesExtensions {
     }
 
     @Test
+    fun copies() {
+        composeRule.setContent {
+            assertEquals(
+                PaddingValues(24.dp).copy(top = 8.dp, end = 32.dp),
+                PaddingValues(start = 24.dp, top = 8.dp, end = 32.dp, bottom = 24.dp)
+            )
+        }
+    }
+
+    @Test
     fun adds() {
         composeRule.setContent {
             assertEquals(PaddingValues(48.dp), PaddingValues(24.dp) + PaddingValues(24.dp))

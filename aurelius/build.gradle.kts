@@ -95,6 +95,7 @@ dependencies {
 
     testImplementation("junit:junit:${Versions.JUNIT}")
 
+    androidTestImplementation(project(":aurelius-test"))
     androidTestImplementation(Libraries.COMPOSE_UI_TEST_JUNIT_4)
     androidTestImplementation(Libraries.COMPOSE_UI_TEST_MANIFEST)
 }
