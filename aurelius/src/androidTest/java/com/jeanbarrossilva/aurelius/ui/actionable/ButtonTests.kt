@@ -4,6 +4,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.performClick
 import com.jeanbarrossilva.aurelius.test.onButton
 import com.jeanbarrossilva.aurelius.ui.actionable.button.Button
+import com.jeanbarrossilva.aurelius.ui.theme.AureliusTheme
 import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
@@ -16,7 +17,9 @@ internal class ButtonTests {
     fun clicks() {
         var hasBeenClicked = false
         composeRule.setContent {
-            Button(onClick = { hasBeenClicked = true }) {
+            AureliusTheme {
+                Button(onClick = { hasBeenClicked = true }) {
+                }
             }
         }
         composeRule.onButton().performClick()
