@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 /** End padding calculated through the [LocalLayoutDirection]. **/
@@ -21,6 +22,24 @@ val PaddingValues.isNegative
 /** Start padding calculated through the [LocalLayoutDirection]. **/
 val PaddingValues.start
     @Composable get() = calculateStartPadding(LocalLayoutDirection.current)
+
+/**
+ * Copies the given [PaddingValues].
+ *
+ * @param start [Dp]s to be applied to the start padding.
+ * @param top [Dp]s to be applied to the top padding.
+ * @param end [Dp]s to be applied to the end padding.
+ * @param bottom [Dp]s to be applied to the bottom padding.
+ **/
+@Composable
+fun PaddingValues.copy(
+    start: Dp = this.start,
+    top: Dp = calculateTopPadding(),
+    end: Dp = this.end,
+    bottom: Dp = calculateBottomPadding()
+): PaddingValues {
+    return PaddingValues(start, top, end, bottom)
+}
 
 /**
  * Adds the [PaddingValues].
