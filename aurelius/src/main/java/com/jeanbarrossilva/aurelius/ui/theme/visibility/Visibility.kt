@@ -1,6 +1,9 @@
 package com.jeanbarrossilva.aurelius.ui.theme.visibility
 
 import androidx.annotation.FloatRange
+import androidx.compose.runtime.Composable
+import com.jeanbarrossilva.aurelius.R
+import com.jeanbarrossilva.aurelius.utils.fractionResource
 
 /**
  * Represents content opacity.
@@ -17,6 +20,10 @@ data class Visibility internal constructor(
         internal val Unspecified = Visibility(medium = 0f, low = 0f)
 
         /** [Visibility] that's provided by default. **/
-        val Default = Visibility(medium = .5f, low = .38f)
+        val default
+            @Composable get() = Visibility(
+                medium = fractionResource(R.fraction.aurelius_visibility_low),
+                low = fractionResource(R.fraction.aurelius_visibility_low)
+            )
     }
 }
