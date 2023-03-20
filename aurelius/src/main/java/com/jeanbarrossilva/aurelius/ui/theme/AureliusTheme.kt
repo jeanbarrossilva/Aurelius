@@ -95,7 +95,7 @@ fun AureliusTheme(
     shapes: Shapes = Shapes.default,
     sizes: Sizes = Sizes.default,
     text: Text = Text.default,
-    visibility: Visibility = Visibility.Default,
+    visibility: Visibility = Visibility.default,
     content: @Composable () -> Unit
 ) {
     CompositionLocalProvider(
